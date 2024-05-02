@@ -14,9 +14,14 @@ public class ListaEncadeada<T> {
     public void inserir(T info){
         NoLista<T> novoNo = new NoLista<T>();
         novoNo.setInfo(info);
-        if(estaVazia())
-            novoNo.setProximo(primeiro);
-        primeiro = novoNo;
+        if(estaVazia()){
+            primeiro = novoNo;
+        }
+        NoLista<T> noAtual = primeiro;
+        while(noAtual.getProximo() != null){
+            noAtual = noAtual.getProximo();
+        }
+        noAtual.setProximo(novoNo);
     }
 
     public boolean estaVazia(){
