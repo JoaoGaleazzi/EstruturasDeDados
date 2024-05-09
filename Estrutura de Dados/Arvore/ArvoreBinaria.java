@@ -115,6 +115,16 @@ public class ArvoreBinaria <T> {
 		}
 	}
 
+	public int contarFolhas(NoArvoreBinaria<T> sa){
+		if (sa == null) {
+			return 0;
+		} else {
+			boolean ehFolha = sa.getDireita() == null && sa.getEsquerda() == null;
+			return (ehFolha? 1:0) + 
+				contarFolhas(sa.getEsquerda()) +
+				contarFolhas(sa.getDireita());
+		}
+	}
 }
 
 

@@ -38,4 +38,15 @@ public class FilaLista<T> implements Fila<T>{
         lista = new ListaEncadeada<T>();
     }
 
+    private int tamanho;
+    private Object[] info;
+    private int inicio;
+
+    public void encolher(){
+        Object[] vetorNovo = new Object[tamanho];
+        for (int i = 0; i < vetorNovo.length; i++) {
+            vetorNovo[i] = this.retirar();
+        }
+        this.info = vetorNovo;
+    }
 }
